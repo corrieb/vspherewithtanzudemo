@@ -1,0 +1,13 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: rolebinding-ns1-def-svc-acc-psp
+  namespace: ns1
+roleRef:
+  kind: ClusterRole
+  name: psp:vmware-system-restricted
+  apiGroup: rbac.authorization.k8s.io
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: ns1

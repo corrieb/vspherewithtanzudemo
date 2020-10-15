@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cm-test
+  namespace: ns1
+data:
+  foo: "bar"

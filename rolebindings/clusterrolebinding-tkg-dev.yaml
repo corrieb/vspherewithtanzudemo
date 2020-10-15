@@ -1,0 +1,27 @@
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: clusterrolebinding-view-group-tkg-dev
+roleRef:
+  kind: ClusterRole
+  name: view
+  apiGroup: rbac.authorization.k8s.io
+subjects:
+- kind: Group
+  name: sso:tkg-dev@vsphere.local
+  apiGroup: rbac.authorization.k8s.io
+
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: clusterrolebinding-storageclass-view-group-tkg-dev
+roleRef:
+  kind: ClusterRole
+  name: storageclass-view
+  apiGroup: rbac.authorization.k8s.io
+subjects:
+- kind: Group
+  name: sso:tkg-dev@vsphere.local
+  apiGroup: rbac.authorization.k8s.io
+
