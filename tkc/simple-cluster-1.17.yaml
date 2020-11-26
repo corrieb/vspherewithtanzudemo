@@ -1,0 +1,27 @@
+apiVersion: run.tanzu.vmware.com/v1alpha1      #TKG API endpoint
+kind: TanzuKubernetesCluster                   #required parameter
+metadata:
+  name: simple-cluster                          #cluster name, user defined
+  namespace: test-cluster                       #supervisor namespace
+spec:
+  distribution:
+    version: v1.17  #Resolves to the latest v1.17 image (v1.17.8+vmware.1-tkg.1.5417466)
+  topology:
+    controlPlane:
+      count: 1                                 #number of control plane nodes
+      class: best-effort-small                 #vmclass for control plane nodes
+      storageClass: k8s-default-storage         #storageclass for control plane
+    workers:
+      count: 3                                 #number of worker nodes
+      class: best-effort-small                 #vmclass for worker nodes
+      storageClass: k8s-default-storage 
+  settings:
+    network:
+      cni:
+        name: antrea
+      services:
+        cidrBlocks: ["10.96.1.0/24"]        #Cannot overlap with Supervisor Cluster
+      pods:
+        cidrBlocks: ["172.16.0.0/16"]           #Cannot overlap with Supervisor Cluster
+    storage:
+      classes: ["k8s-default-storage"]              #Named PVC storage classes
