@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rpc-app-deployment
+  labels:
+    app: rpc-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rpc-app
+  template:
+    metadata:
+      labels:
+        app: rpc-app
+    spec:
+      containers:
+      - name: rpc-app-cont
+        image: supergiantkir/prometheus-test-app
+        ports:
+        - name: web
+          containerPort: 8081

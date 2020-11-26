@@ -9,7 +9,7 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 subjects:
 - kind: User
-  name: sso:bob-tkg-dev@vsphere.local
+  name: sso:bob@vsphere.local
   apiGroup: rbac.authorization.k8s.io
 
 ---
@@ -24,6 +24,6 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 subjects:
 - kind: User
-  name: sso:bob-tkg-dev@vsphere.local
+  name: sso:bob@vsphere.local
   apiGroup: rbac.authorization.k8s.io
 

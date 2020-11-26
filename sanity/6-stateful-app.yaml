@@ -1,8 +1,22 @@
+# See https://docs.vmware.com/en/VMware-vSphere/7.0/vmware-vsphere-with-tanzu/GUID-A19F6480-40DC-4343-A5A9-A5D3BFC0742E.html
+# An example stateful app
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: my-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: k8s-default-storage # Replace with your storage policy
+  resources:
+    requests:
+        storage: 2Gi
+---
 apiVersion: v1
 kind: Service
 metadata:
   name: mysql
-  namespace: default
 spec:
   ports:
   - port: 3306
@@ -14,7 +28,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql
-  namespace: default
 spec:
   selector:
     matchLabels:
@@ -43,4 +56,3 @@ spec:
       - name: mysql-persistent-storage
         persistentVolumeClaim:
           claimName: my-pvc
-

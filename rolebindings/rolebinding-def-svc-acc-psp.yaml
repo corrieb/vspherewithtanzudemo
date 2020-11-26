@@ -1,8 +1,7 @@
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: rolebinding-defns-def-svc-acc-psp
-  namespace: default
+  name: rolebinding-def-svc-acc-psp
 roleRef:
   kind: ClusterRole
   name: psp:vmware-system-privileged

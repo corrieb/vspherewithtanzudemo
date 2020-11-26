@@ -1,0 +1,14 @@
+# See https://kubernetes.io/docs/concepts/services-networking/service/
+# Adds a ClusterIP service to 3-deployment.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-clusterip-service
+spec:
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
