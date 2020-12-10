@@ -39,6 +39,7 @@ kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: rolebinding-prometheus-psp
+  namespace: default
 roleRef:
   kind: ClusterRole
   name: psp:vmware-system-privileged

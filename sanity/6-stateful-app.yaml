@@ -8,7 +8,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: k8s-default-storage # Replace with your storage policy
+  storageClassName: k8s-default-storage 
   resources:
     requests:
         storage: 2Gi

@@ -20,7 +20,7 @@ metadata:
   namespace: ns1
 roleRef:
   kind: ClusterRole
-  name: psp:vmware-system-restricted
+  name: psp:vmware-system-restricted-with-root
   apiGroup: rbac.authorization.k8s.io
 subjects:
 - kind: User

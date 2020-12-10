@@ -6,6 +6,7 @@
 #   see rolebindings/rolebinding-def-svc-acc-psp.yaml
 
 namespace=${1:-default}
+
 sanity/scripts/3-deployment.sh "$namespace"
 kubectl -n "$namespace" apply -f sanity/4-service-clusterip.yaml
 kubectl -n "$namespace" get endpoints,services

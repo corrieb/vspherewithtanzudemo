@@ -12,3 +12,4 @@ kubectl -n "$namespace" apply -f sanity/6-stateful-app.yaml
 util/wait-for-deployment.sh "$namespace" "$name"
 kubectl -n "$namespace" get pvc
 kubectl -n "$namespace" get deployment "$name"
+

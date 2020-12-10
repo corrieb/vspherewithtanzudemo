@@ -6,6 +6,7 @@
 #   see rolebindings/rolebinding-def-svc-acc-psp.yaml
 
 namespace=${1:-default}
+
 sanity/scripts/3-deployment.sh "$namespace"
 kubectl -n "$namespace" apply -f sanity/5-service-loadbalancer.yaml
 util/wait-for-external-IP.sh "$namespace" my-loadbalanced-service
